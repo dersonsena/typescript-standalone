@@ -1,0 +1,10 @@
+node_modules/
+nbproject
+.DS_Store?
+.DS_Store
+.project
+/.buildpath
+/.settings
+/.idea
+/*.sublime-project
+/*.sublime-workspace
