@@ -1,11 +1,12 @@
-export class Main {
-	prop1: string;
+import { Horse } from './horse';
+import { Dog } from './dog';
 
-    constructor() {
-        this.metodo1();
-    }
+let myHorse = new Horse();
+myHorse.setName('Little Horse');
+console.log(myHorse.walk());
+console.log(myHorse.sleep());
 
-	public metodo1() {
-		console.log('retorno do metodorfrf 1 !!');
-	}
-}
+let myDog = new Dog();
+myDog.setName('Pretty dog');
+console.log(myDog.walk());
+console.log(myDog.sleep());

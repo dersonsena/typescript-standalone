@@ -1,1 +1,7 @@
-# typescript-standalone
+# Typescript Standalone
+
+Run:
+
+```
+npm install
+```

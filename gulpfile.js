@@ -1,22 +1,19 @@
 var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var ts = require('gulp-typescript');
-var tsProject = ts.createProject('tsconfig.json');
-
-gulp.task('compile-ts', function() {
-	var tsResult = gulp.src('./src/**/*.ts')
-		.pipe(tsProject());
-
-	return tsResult.js.pipe(gulp.dest('./dist'));
+var gulpBrowserify = require('gulp-browserify-typescript');
+var tsConfig = require('./tsConfig.json');
+ 
+gulp.task('gulp-browserify', done => {
+    gulpBrowserify({
+        watch: true,
+        sourcemaps: tsConfig.compilerOptions.sourceMap,
+        minify : false,
+        src : ['./src/main.ts'],
+        outputPath : './dist/',
+        outputFile : 'bundle.js',
+        tsify : tsConfig.compilerOptions
+    }).on('end', done);
 });
 
-gulp.task('compress', function() {
-	return gulp.src('./dist/*.js')
-		.pipe(uglify())
-		.pipe(gulp.dest('./dist'));
-});
+gulp.task('default', ['gulp-browserify']);
 
-gulp.task('default', ['compile-ts']);
-
-gulp.watch('./src/*', ['compile-ts']);
-gulp.watch('./dist/*', ['compress']);
+gulp.watch('./src/*', ['gulp-browserify']);
