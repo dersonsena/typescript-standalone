@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var Main=function(){function o(){this.metodo1()}return o.prototype.metodo1=function(){console.log("retorno do metodorfrf 1 !!")},o}();exports.Main=Main;
